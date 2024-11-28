@@ -1,10 +1,14 @@
 package uniandes.dpoo.swing.interfaz.agregar;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
+import uniandes.dpoo.swing.interfaz.mapa.PanelMapaVisualizar;
 import uniandes.dpoo.swing.interfaz.principal.VentanaPrincipal;
 
 @SuppressWarnings("serial")
@@ -34,7 +38,19 @@ public class VentanaAgregarRestaurante extends JFrame
     {
         this.ventanaPrincipal = principal;
         setLayout( new BorderLayout( ) );
+        
+        
+        panelMapa= new PanelMapaAgregar();
+        panelMapa.getCoordenadas();
+        add(panelMapa, BorderLayout.SOUTH);
+        
+        JPanel panelOpciones = new JPanel(new FlowLayout());
+        panelDetalles = new PanelEditarRestaurante();
+        add(panelDetalles, BorderLayout.SOUTH);
 
+        panelBotones= new PanelBotonesAgregar(null);
+        
+        add(panelOpciones, BorderLayout.SOUTH);
         // Agrega el panel donde va a estar el mapa
         // TODO completar
 
